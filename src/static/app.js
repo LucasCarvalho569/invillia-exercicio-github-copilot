@@ -27,6 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
         `;
 
+        // Create participants component
+        const participantsDiv = document.createElement("div");
+        participantsDiv.className = "participants";
+
+        participantsDiv.innerHTML = `
+          <h5>Participants:</h5>
+          ${
+            details.participants.length > 0
+              ? `<ul>${details.participants.map(participant => `<li>${participant}</li>`).join("")}</ul>`
+              : "<p>No participants yet</p>"
+          }
+        `;
+
+        activityCard.appendChild(participantsDiv);
         activitiesList.appendChild(activityCard);
 
         // Add option to select dropdown
